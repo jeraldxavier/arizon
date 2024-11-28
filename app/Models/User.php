@@ -7,6 +7,12 @@ use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable implements JWTSubject
 {
+
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+    ];
     /**
      * Get the identifier that will be stored in the JWT payload.
      *
