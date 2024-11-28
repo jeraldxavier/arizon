@@ -95,6 +95,7 @@ return [
                 'updatePost' => \App\GraphQL\Mutations\UpdatePostMutation::class,
                 'deletePost' => \App\GraphQL\Mutations\DeletePostMutation::class,
                 'login' => \App\GraphQL\Mutations\LoginMutation::class,
+                'createUser' => \App\GraphQL\Mutations\CreateUserMutation::class,
                 // 'login' => [
                 //     'type' => \App\GraphQL\Mutations\LoginMutation::class,
                 //     'middleware' => [],  // No JWT middleware for login
@@ -139,6 +140,7 @@ return [
         // \Rebing\GraphQL\Support\UploadType::class,
         'Post' => \App\GraphQL\Types\PostType::class,
         'AuthResponse' => \App\GraphQL\Types\AuthResponseType::class,
+        \App\GraphQL\Types\UserType::class,
     ],
 
     // This callable will be passed the Error object for each errors GraphQL catch.

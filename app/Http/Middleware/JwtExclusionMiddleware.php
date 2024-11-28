@@ -15,15 +15,15 @@ class JwtExclusionMiddleware
         if (!$operationName) {
             $query = $request->input('query'); 
             // print_r($query = $request->input('query'));
-            preg_match('/login/i', $query, $matches);
+            preg_match('/\b(login|createUser)\b/i', $query, $matches);
 
-            // print_r(preg_match('/login/i', $query));exit;
+            // print_r(preg_match('/\b(login|createUser)\b/i', $query));exit;
             $operationName = $matches[0] ?? null; // Second match is the operation name
         }
 
         // Skip JWT authentication for the 'login' operation
         // print_r($matches);exit;
-        if ($operationName === 'login') {
+        if (($operationName === 'login') | ($operationName === 'createUser')) {
             return $next($request);
         }
         // Check if the route is 'login' and exclude JWT for this route
